@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  background: linear-gradient(
+    90deg,
+    #85f6b8 0%,
+    rgba(142, 217, 235, 0.85) 99.84%
+  );
+  background-blend-mode: darken;
+}
+.main,
+.main2,
+.main3 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(
+    90deg,
+    #85f6b8 0%,
+    rgba(142, 217, 235, 0.85) 99.84%
+  );
+  background-blend-mode: darken; */
+  height: 100vh;
+  justify-content: center;
+}
+
+.formulaire,
+.formulaire2,
+.formulaire3 {
+  background: #fff;
+  height: 550px;
+  width: 45%;
+}
+.groupText {
+  width: 100%;
+  margin-bottom: 60px;
+}
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "inter";
+  margin-bottom: 20px;
+}
+.title1 {
+  padding: 20px;
+}
+.title {
+  text-align: center;
+  font-family: "inter";
+  font-size: 18px;
+  line-height: 20px;
+  margin: 120 35px;
+  color: #555555;
+}
+.inputForm {
+  /* border: 1px solid brown; */
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-control {
+  width: 85%;
+  margin: auto;
+  margin-top: -40px;
+}
+
+.error1 {
+  color: red;
+  font-size: 12px;
+}
+.text-field {
+  width: 100%;
+  height: 45px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 41px;
+}
+.btn1 {
+  font-family: "inter";
+
+  width: 50%;
+  height: 50px;
+
+  background: #028a3d;
+  color: #fff;
+  border: none;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  align-items: center;
+}
+.status,
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.answer__container {
+  display: flex;
+  position: relative;
+  margin: 20px;
+}
+.answer__container label,
+.answer__container input[type="radio"] {
+  margin: 0;
+  padding: 0;
+}
+.answer__container label {
+  width: 100%;
+  border: 0.1em solid #c4c4c4;
+  padding: 2% 10%;
+  /* margin: 1em 0; */
+}
+.answer__container input[type="radio"] {
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  border: 0.1em solid #c4c4c4;
+}
+.answer__container input[type="radio"]:checked {
+  background-color: #028a3d;
+  border: 0.1em solid #028a3d;
+}
+.answer__container input[type="radio"]:checked ~ label {
+  border: 0.1em solid #028a3d;
+}
+
+.progressbar__container {
+  width: 91%;
+  background: #dddddd;
+  border-radius: 1em;
+  margin: 1em 0;
+  margin-left: 20px;
+}
+.progressbar {
+  height: 0.6em;
+  width: 100%;
+  background: #028a3d;
+  border-radius: 1em;
+  transition: width 1s ease-in;
+}
+
+.exitButton {
+  background: #ec880c;
+  width: 180px;
+  height: 50px;
+  color: white;
+  border: none;
+}
+.suivant:disabled {
+  width: 180px;
+  height: 50px;
+  color: white;
+  background: rgba(2, 138, 61, 0.42);
+  border: none;
+}
+
+.suivant {
+  width: 180px;
+  height: 50px;
+
+  background-color: #028a3d;
+  color: #ffffff;
+  border: none;
+}
+.main3 {
+  display: none;
+}
+.main2 {
+  display: none;
+}
+.main2 p {
+  text-align: center;
+  font-family: "inter";
+  padding-left: 24px;
+  padding-top: 30px;
+  padding-right: 24px;
+}
+
+.lni {
+  font-weight: 900 !important;
+  font-size: 7em !important;
+}
+
+.success {
+  color: #028a3d;
+}
+
+.failed {
+  color: #ff3838;
+}
+
+.backToHome {
+  background: #0880d6;
+
+  font-family: "inter";
+
+  width: 40%;
+  height: 50px;
+
+  color: #fff;
+  border: none;
+}
+.btnAccueil {
+  display: flex;
+  justify-content: center;
+}
+
+.username,
+.usermail,
+.icon__container,
+.userscore__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.userscore__container {
+  padding: 20px;
+}
+
+.containerQuestion {
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 978px) {
+  .main,
+  .main2,
+  .main3 {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 977px) and (min-width: 769px) {
+  /*  .main,
+  .main2,
+  .main3 {
+    width: 100%;
+  } */
+  .main {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main,
+  .main2,
+  .main3 {
+    width: 100% !important;
+    margin: 0;
+  }
+}

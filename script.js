@@ -1,34 +1,24 @@
 const userName = document.querySelector("#nom");
 const Emailuser = document.querySelector("#email");
+const submitButton = document.querySelector(".btn");
 const form = document.querySelector("form");
-const ButtonSubmit = document.querySelector(".btn");
-const PageAccueil = document.querySelector(".main");
-const PageQuiz = document.querySelector(".main2");
-const PageScore = document.querySelector(".main3");
+const MessageError = document.querySelector(".error");
+const PageAccueil = document.querySelector(".connexion");
+const Quiz = document.querySelector(".Quiz");
+const score = document.querySelector(".score");
 
-//click sur le button commencer on declenche un event click
-ButtonSubmit.addEventListener("click", function (e) {
+
+submitButton.addEventListener("click", function(e) {
   e.preventDefault();
   validateInputs();
 });
-// Déclaration des variables pour la validation du formulaire
-
-let ErrorMessageNom = document.createElement("span");
-let ErrorMessageEmail = document.createElement("span");
-ErrorMessageNom.textContent = "";
-ErrorMessageEmail.textContent = "";
-userName.after(ErrorMessageNom);
-Emailuser.after(ErrorMessageEmail);
-
-ErrorMessageNom.classList.add("error1");
-ErrorMessageEmail.classList.add("error1");
 
 // creation de questions et reponses en objets
 var questions = [
   {
     id: 1,
     question: "Dans une boucle while, il faut pensé à ______ la valeur ?",
-    correctResponse: "increnter",
+    correctResponse: "incrémenter",
     SelectQuestion: ["Recuperer", "définir", "stocker", "incrémenter"],
   },
 
@@ -69,9 +59,9 @@ var questions = [
 
   {
     id: 7,
-    question: "La methode qui permet d'écouter un événement en javascript",
-    correctResponse: "addEventListener",
-    SelectQuestion: ["Add.eventListener", "addEventListener", "breakevet", "addEv"],
+    question: "c'est quoi l'extension de javascript",
+    correctResponse: ".js",
+    SelectQuestion: [".ts", ".php", ".js", ".txt"],
   },
   {
     id: 8,
@@ -156,7 +146,7 @@ var questions = [
 let indexitems = 0;
 let userScore = 0;
 let reponSelected = "";
-const TitreDuquestion = document.querySelector(".main2 .title");
+const TitreDuquestion = document.querySelector(".Quiz .title2");
 const containerQuestion = document.querySelector(".containerQuestion");
 const formQuestion = document.querySelector(".form-Question");
 
@@ -166,7 +156,6 @@ function QuestionsForms(indexitems) {
   let QuestionTexte = `<span>${questions[indexitems].question}</span>`;
   TitreDuquestion.innerHTML = QuestionTexte;
   containerQuestion.innerHTML =
-  
     `<div class="status">` +
     `<p class="question__number">Question  ${indexitems + 1}/15 </p>` +
     `<div class="timercounter">` +
@@ -216,7 +205,6 @@ function QuestionsForms(indexitems) {
   if (indexitems === questions.length - 1) {
     nextQuestionButton.value = "Terminer";
   }
-
   nextQuestionButton.addEventListener("click", (e) => {
     e.preventDefault();
     nextQuestion();
@@ -236,10 +224,10 @@ function QuestionsForms(indexitems) {
       // On last question
       AvoirUserScore();
 
-      PageScore.style.display = "flex";
+      score.style.display = "block";
 
       AfficherScore();
-      PageQuiz.style.display = "none";
+      Quiz.style.display = "none";
     }
   };
 
@@ -302,10 +290,9 @@ function QuestionsForms(indexitems) {
 
     AvoirUserScore();
 
-    PageScore.style.display = "flex";
-
+    score.style.display = "flex";
     AfficherScore();
-    PageQuiz.style.display = "none";
+    Quiz.style.display = "none";
   };
 
   exitButton.addEventListener("click", exitQuiz);
@@ -313,38 +300,57 @@ function QuestionsForms(indexitems) {
 
 //debut de la validation du questions du formulaire
 function validateInputs() {
-  const validNameok = new RegExp(/(?=.*[a-zA-Z.]{2,})/);
-  const validEmailok = new RegExp(/(?=.*@)/);
+  const username = userName.value.trim();
+  const email = Emailuser.value.trim();
 
-  const validName = userName.value.match(validNameok);
-  const validEmail = Emailuser.value.match(validEmailok);
-
-  if (validName == null) {
-    userName.style.border = "1px solid red";
-    ErrorMessageNom.textContent =
-      "N’oubliez pas de renseigner votre nom avant de commencer le Quiz.";
-  } else {
-    userName.style.border = "1px solid green";
+  if (username === "") {
+    setErrorFor(
+      userName,
+      "N’oubliez pas de renseigner votre nom avant de commencer le Quiz."
+    );
+  } else if (username.length < 2)
+    setErrorFor(userName, "Minimum deux caractères");
+  else {
+    setSuccedMessage(userName);
     localStorage.setItem("userN", userName.value);
-    ErrorMessageNom.textContent = "";
   }
 
-  if (validEmail == null) {
-    Emailuser.style.border = "1px solid red";
-    ErrorMessageEmail.textContent =
-      "N’oubliez pas de renseigner votre email avant de commencer le Quiz.";
+  if (email === "") {
+    setErrorFor(
+      Emailuser,
+      "N’oubliez pas de renseigner votre email avant de commencer le Quiz."
+    );
+  } else if (!isEmailValid(email)) {
+    setErrorFor(Emailuser, "L'adresse email est invalide.");
   } else {
-    Emailuser.style.border = "1px solid green";
+    setSuccedMessage(Emailuser);
     localStorage.setItem("userEmail", Emailuser.value);
-    ErrorMessageNom.textContent = "";
   }
 
-  if (validName !== null && validEmail !== null) {
+  if (username !== "" && username.length > 2 && isEmailValid(email)) {
     PageAccueil.style.display = "none";
-    PageQuiz.style.display = "flex";
+    Quiz.style.display = "block";
     form.reset();
     QuestionsForms(0);
   }
+}
+
+function setErrorFor(input, message) {
+  const FormGroup = input.parentElement;
+  const small = FormGroup.querySelector("small");
+  small.innerText = message;
+  FormGroup.className = "form-group error";
+}
+function setSuccedMessage(input) {
+  const FormGroup = input.parentElement; //form control
+  FormGroup.className = "form-group success";
+}
+
+function isEmailValid(email) {
+
+  return (
+    email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/) !== null
+  );
 }
 
 //fin de validation
@@ -355,9 +361,7 @@ function AfficherScore() {
 
   const userName = localStorage.getItem("userN");
   const userMail = localStorage.getItem("userEmail");
-
-  PageScore.innerHTML =
-    '<div class="formulaire3">' +
+  score.innerHTML =
     `<h2 class="username">${userName}</h2>` +
     `<p class="usermail">${userMail}</p>` +
     `<div class="icon__container">

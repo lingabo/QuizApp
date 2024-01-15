@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"); 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 body {
   width: 100%;
   height: 100%;
-  padding: 5%;
+  overflow-x: hidden;
   background: linear-gradient(
     90deg,
     #85f6b8 0%,
@@ -15,70 +15,93 @@ body {
   );
   background-blend-mode: darken;
 }
-.main,
-.main2,
-.main3 {
+.container {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  /* background: linear-gradient(
-    90deg,
-    #85f6b8 0%,
-    rgba(142, 217, 235, 0.85) 99.84%
-  );
-  background-blend-mode: darken; */
-  height: 100vh;
+  justify-items: center;
   justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family : "inter"
 }
 
-.formulaire,
-.formulaire2,
-.formulaire3 {
+.connexion,
+.Quiz,
+.score {
   background: #fff;
-  height: 550px;
-  width: 45%;
+  height: 530px;
+  width: 30%;
+  margin: 12px;
+}
+.Quiz {
+  display: none;
+}
+.score {
+  display: none;
 }
 .groupText {
   width: 100%;
-  margin-bottom: 60px;
+  margin-top: 62px;
 }
 h1 {
   text-align: center;
   margin-top: 40px;
   font-family: "inter";
+  font-size: 25px;
   margin-bottom: 20px;
-}
-.title1 {
-  padding: 20px;
+  color: #555555;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 500;
 }
 .title {
   text-align: center;
   font-family: "inter";
-  font-size: 18px;
+  font-size: 13px;
+  font-style: normal;
   line-height: 20px;
-  margin: 120 35px;
+  margin: 60 20px;
   color: #555555;
-}
-.inputForm {
-  /* border: 1px solid brown; */
-  width: 100%;
-  margin-top: 10px;
 }
 
 .form-control {
   width: 85%;
   margin: auto;
-  margin-top: -40px;
+  margin-top: 28px;
+}
+.labelname {
+  font-family: "inter";
+  font-size: 15px;
+  color: #555555;
 }
 
-.error1 {
-  color: red;
-  font-size: 12px;
+.form-group small {
+  visibility: hidden;
+  position: relative;
+  bottom: 0;
+  left: 0;
 }
+.form-group.success input {
+  border-color: #028a3d;
+}
+.form-group.error input {
+  border-color: #ff3838;
+}
+.form-group.error small {
+  color: #ff3838;
+  visibility: visible;
+  font-size: 10px;
+  line-height: 12px;
+  font-family: "inter";
+}
+
+.success {
+  color: #028a3d;
+}
+
 .text-field {
   width: 100%;
-  height: 45px;
+  height: 40px;
   background: #ffffff;
   border: 1px solid #dddddd;
   padding: 10px;
@@ -86,47 +109,60 @@ h1 {
 .btn {
   display: flex;
   justify-content: center;
-  margin-top: 41px;
+  margin-top: 15px;
 }
 .btn1 {
-  font-family: "inter";
-
+ 
   width: 50%;
-  height: 50px;
-
+  height: 35px;
   background: #028a3d;
   color: #fff;
   border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}
+.Quiz {
+  padding: 30px;
 }
 
-.status {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-  align-items: center;
+.title2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.question-form {
+  width: 100%;
+  margin-top: 120px;
+}
+.containerQuestion {
+  width: 100%;
 }
 .status,
 .buttonContainer {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
 }
 
 .answer__container {
   display: flex;
   position: relative;
-  margin: 20px;
+}
+.status,
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0 0;
 }
 .answer__container label,
 .answer__container input[type="radio"] {
-  margin: 0;
-  padding: 0;
+  margin: 0 2%;
 }
 .answer__container label {
   width: 100%;
   border: 0.1em solid #c4c4c4;
   padding: 2% 10%;
-  /* margin: 1em 0; */
+  margin: 1em 0;
 }
 .answer__container input[type="radio"] {
   position: absolute;
@@ -146,15 +182,34 @@ h1 {
   border: 0.1em solid #028a3d;
 }
 
+input[type="button"],
+input[type="submit"],
+button {
+  box-shadow: 0px 4px 2px 1px #c4c4c4;
+}
+
+.elementHover,
+.startButton:hover,
+.backToHome:hover,
+.exitButton:hover,
+.suivant:hover,
+.answer__container label:hover,
+.answer__container input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+.buttonContainer {
+  margin: 1% 0 1%;
+}
+
 .progressbar__container {
-  width: 91%;
+  width: 100%;
   background: #dddddd;
   border-radius: 1em;
   margin: 1em 0;
-  margin-left: 20px;
 }
 .progressbar {
-  height: 0.6em;
+  height: 0.4em;
   width: 100%;
   background: #028a3d;
   border-radius: 1em;
@@ -163,41 +218,35 @@ h1 {
 
 .exitButton {
   background: #ec880c;
-  width: 180px;
-  height: 50px;
+  padding: 0.8em 10%;
+  width: 45%;
   color: white;
   border: none;
 }
 .suivant:disabled {
-  width: 180px;
-  height: 50px;
+  padding: 0.8em 10%;
+  width: 45%;
   color: white;
   background: rgba(2, 138, 61, 0.42);
   border: none;
 }
 
 .suivant {
-  width: 180px;
-  height: 50px;
-
+  padding: 0.8em 10%;
+  width: 45%;
   background-color: #028a3d;
   color: #ffffff;
   border: none;
 }
-.main3 {
-  display: none;
-}
-.main2 {
-  display: none;
-}
-.main2 p {
+.Quiz p {
   text-align: center;
   font-family: "inter";
-  padding-left: 24px;
-  padding-top: 30px;
-  padding-right: 24px;
+  font-weight: 400;
+  font-size: 15px;
 }
-
+.score {
+  flex-direction: column;
+}
 .lni {
   font-weight: 900 !important;
   font-size: 7em !important;
@@ -213,18 +262,16 @@ h1 {
 
 .backToHome {
   background: #0880d6;
-
   font-family: "inter";
-
   width: 40%;
   height: 50px;
-
   color: #fff;
   border: none;
 }
 .btnAccueil {
   display: flex;
   justify-content: center;
+  font-family: "inter";
 }
 
 .username,
@@ -234,38 +281,57 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 40px;
+}
+.username{
+  position: relative;
+  top: 23px;
+}
+.icon__container{
+  position:relative;
+  top: 12px;
 }
 .userscore__container {
   padding: 20px;
 }
 
-.containerQuestion {
-  width: 100%;
-}
-
 @media screen and (max-width: 1024px) and (min-width: 978px) {
-  .main,
-  .main2,
-  .main3 {
-    width: 100%;
+  .connexion,
+  .Quiz,
+  .score {
+    width: 60%;
   }
 }
 @media screen and (max-width: 977px) and (min-width: 769px) {
-  /*  .main,
-  .main2,
-  .main3 {
-    width: 100%;
-  } */
-  .main {
+  .connexion,
+  .Quiz,
+  .score {
     width: 80%;
   }
 }
 @media screen and (max-width: 768px) {
-  .main,
-  .main2,
-  .main3 {
-    width: 100% !important;
+  .connexion,
+  .Quiz,
+  .score {
+    width: 90% !important;
+    height: 95%;
     margin: 0;
+  }
+  .error {
+    font-size: 10px;
+  }
+  .title2 {
+    font-size: 12px;
+  }
+  .btn {
+    margin-top: 5px;
+  }
+  input[type="radio"] {
+    width: 1em !important;
+    height: 1em !important;
+  }
+
+  label {
+    font-size: 0.8em;
   }
 }

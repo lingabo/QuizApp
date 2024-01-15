@@ -1,78 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<html>
 
-    <meta name="viewport" content="width=device-width" />
-    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <title>QuizApp</title>
-  </head>
-  <body>
-    <div class="main">
-      <div class="formulaire">
-             <div class="groupText">
-        <h1>Javascript Quiz</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
 
-     <p class="title">
-        Évaluez vos connaissances en JavaScript en <br />répondant aux questions que
-        nous avons<br /> spécialement sélectionnées pour vous. <br />C'est fun et
-        c'est gratuit.
-      </p>
+<body>
+ <div class="container">
+      <div class="connexion">
+        <div class="groupText">
+          <h1>JavaScript Quiz</h1>
 
-      </div>
-      
-      <form action="" class="inputForm">
-        <div class="form-control">
-         
-          <label for="">Nom</label><br /><br />
-          <input
-            type="text"
-            id="nom"
-            class="text-field"
-            placeholder="joseph"
-          /><br /> <br>      
-          <label for="">Email</label><br /><br />
-          <input
-            type="email"
-            id="email"
-            class="text-field"
-            placeholder="joseph@kinshasadigital.com"
-          /><br />
-
-           <div class="btn">
-          <button type="submit" class="btn1" id="btn">Commencer</button>
-        
+          <p class="title">
+            Évaluez vos connaissances en JavaScript en <br />répondant aux
+            questions que nous avons<br />
+            spécialement sélectionnées pour vous. <br />C'est fun et c'est
+            gratuit.
+          </p>
         </div>
-      </form>
-          
+        <div class="form-control">
+          <form action="">
+            <div class="form-group">
+              <label class="labelname">Nom</label><br /><br />
+              <input
+                type="text"
+                id="nom"
+                class="text-field"
+                placeholder="Junior"
+              /><br />
+              <small></small><br />
+            </div>
+            <div class="form-group">
+              <label class="labelname">Email</label><br /><br />
+              <input
+                type="email"
+                id="email"
+                class="text-field"
+                placeholder="lingabo@kinshasadigital.com"
+              /><br /><small>Bienvenu</small>
+            </div>
+
+            <div class="btn">
+              <button type="submit" class="btn1" id="btn">Commencer</button>
+            </div>
+          </form>
+        </div>
       </div>
-        
-      </div>
-    
-    </div>
 
-    <div class="main2">
-
-      <div class="formulaire2">
-        <p class="title">
-
-        </p>
+      <div class="Quiz">
+        <div class="groupeText2">
+          <p class="title2"></p>
+        </div>
 
         <div class="containerQuestion"></div>
 
-        <form class="form-Question">
-
-        </form>
-
+        <form class="form-Question"></form>
       </div>
 
+      <div class="score"></div>
     </div>
+    
 
-    <div class="main3">
-     
-    </div>
 
-    <script src="script.js"></script>
-  </body>
+
+  
+  <script src="script.js"></script>
+
+ <!--
+This script places a badge on your repl's full-browser view back to your repl's cover page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green, teal, blue, blurple, magenta, pink!
+-->
+<script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
 </html>

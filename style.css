@@ -21,7 +21,7 @@ body {
   justify-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   font-family : "inter"
 }
 
@@ -123,6 +123,7 @@ h1 {
   font-size: 15px;
 }
 .Quiz {
+  height: 100%;
   padding: 30px;
 }
 
@@ -137,6 +138,7 @@ h1 {
 }
 .containerQuestion {
   width: 100%;
+  
 }
 .status,
 .buttonContainer {
@@ -307,6 +309,7 @@ button {
   .Quiz,
   .score {
     width: 80%;
+   
   }
 }
 @media screen and (max-width: 768px) {
@@ -314,7 +317,7 @@ button {
   .Quiz,
   .score {
     width: 90% !important;
-    height: 95%;
+    height: 100%;
     margin: 0;
   }
   .error {

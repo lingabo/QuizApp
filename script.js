@@ -172,15 +172,15 @@ function QuestionsForms(indexitems) {
     `<label for="firstAnswerSuggested"> ${questions[indexitems].SelectQuestion[3]} </label>` +
     `</div>` +
     `<div class="answer__container">` +
-    `<input type="radio" class="answer" id="firstAnswerSuggested" name="answer" value="${questions[indexitems].SelectQuestion[2]}">` +
+    `<input type="radio" class="answer" id="secondAnswerSuggested" name="answer" value="${questions[indexitems].SelectQuestion[2]}">` +
     `<label for="secondAnswerSuggested"> ${questions[indexitems].SelectQuestion[2]} </label>` +
     `</div>` +
     `<div class="answer__container">` +
-    `<input type="radio" class="answer" id="firstAnswerSuggested" name="answer" value="${questions[indexitems].SelectQuestion[1]}">` +
+    `<input type="radio" class="answer" id="thirdAnswerSuggested" name="answer" value="${questions[indexitems].SelectQuestion[1]}">` +
     `<label for="thirdAnswerSuggested"> ${questions[indexitems].SelectQuestion[1]} </label>` +
     `</div>` +
     `<div class="answer__container">` +
-    `<input type="radio" class="answer" id="firstAnswerSuggested" name="answer" value="${questions[indexitems].SelectQuestion[0]}">` +
+    `<input type="radio" class="answer" id="fourthAnswerSuggested" name="answer" value="${questions[indexitems].SelectQuestion[0]}">` +
     `<label for="fourthAnswerSuggested"> ${questions[indexitems].SelectQuestion[0]} </label>` +
     `</div>` +
     `<div class="buttonContainer">` +
@@ -198,6 +198,7 @@ function QuestionsForms(indexitems) {
         (changeAnswer = () => {
           nextQuestionButton.disabled = false;
           reponSelected = answer.value;
+         
         })
       );
     }
